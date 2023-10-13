@@ -3,10 +3,8 @@
 const dbConnection = async() => {
 
 try {
-    await mongoose.connect('mongodb://127.0.0.1:27017', { // mongodb://localhost:27017 mongodb://127.0.0.1:27017
+    await mongoose.connect(process.env.DB_URI, { 
         useNewUrlParser: true,
-        //mongodb://username:password@hostname:port/database
-
         UseUnifiedTopology: true
     });    
 
