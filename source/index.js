@@ -11,17 +11,12 @@ app.use( cors() );
 
 dbConnection();
 
-app.get('/', function(req, res){
-        res.send(' <h1>HOME</h1> ');
-})
+// Rutas
 
-app.get('/user', function(req, res){
-        const Tania = {
-            name:'Tania Medina', 
-            professoion: 'Estudiante',      
-    } 
-    res.json(Tania)
-})
+app.use('/api/auth', require('./routes/auth.routes.js')); // http://localhost:4001/api/auth
+app.use('/api/settings', require('./routes/settings.routes.js')); // http://localhost:4001/api/settings
+
+//lanza servidor en: //http:locaclhost:4001
 
 app.listen(PORT, () => {
     console.log(`servidor express launching en el puerto ${PORT}`);
